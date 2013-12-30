@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="codemirror.css">
+    <script src="codemirror.js"></script>
+    <!--MODES-->
+  </head>
+  <style>
+    
+    body {
+      margin: 0px;
+    }
+    
+    .CodeMirror {
+      width: 100%;
+      height: 100%;
+    }
+    
+  </style>
+  <body>
+    <script>
+      
+      var delegate = null;
+      
+      var editor = CodeMirror(document.body, {
+        indentUnit: 2,
+        tabSize: 4,
+        indentWithTabs: false,
+        smartIndent: true,
+        lineWrapping: false,
+        lineNumbers: true,
+        autofocus: true
+      });
+      editor.on("change", function(instance, change) {
+        delegate.change();
+      });
+      
+      function SetDelegate(wsObject) {
+        delegate = wsObject;
+      }
+      
+      function SupportedMimeTypes() {
+        return Object.keys(CodeMirror.mimeModes).join(",");
+      }
+      
+      function SetMimeType(type) {
+        editor.setOption("mode", type);
+      }
+      
+      function GetMimeType(type) {
+        return editor.getOption("mode");
+      }
+      
+      function SetLineWrapping(wrapping) {
+        editor.setOption("lineWrapping", wrapping);
+      }
+      
+      function GetLineWrapping() {
+        return editor.getOption("lineWrapping");
+      }
+      
+      function SetIndentUnit(unit) {
+        editor.setOption("indentUnit", unit);
+      }
+      
+      function GetIndentUnit() {
+        return editor.getOption("indentUnit");
+      }
+      
+      function SetTabSize(size) {
+        editor.setOption("tabSize", size);
+      }
+      
+      function GetTabSize() {
+        return editor.getOption("tabSize");
+      }
+      
+      function SetTabInsertSpaces(flag) {
+        // See http://codemirror.net/doc/manual.html#keymaps
+        if (flag) {
+          CodeMirror.keyMap["basic"]["Tab"] = function(cm) {
+            var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+            cm.replaceSelection(spaces, "end", "+input");
+          };
+        } else {
+          CodeMirror.keyMap["basic"]["Tab"] = "defaultTab";
+        }
+      }
+      
+      function GetTabInsertSpaces() {
+        return CodeMirror.keyMap["basic"]["Tab"] == "defaultTab";
+      }
+      
+      function SetContent(content) {
+        editor.doc.setValue(content);
+      }
+      
+      function GetContent() {
+        return editor.doc.getValue();
+      }
+      
+    </script>
+  </body>
+</html>
