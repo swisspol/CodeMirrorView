@@ -33,20 +33,21 @@
 @protocol CodeMirrorViewDelegate <NSObject>
 @optional
 -(void)codeMirrorViewDidFinishLoading:(CodeMirrorView*)view;
--(void)codeMirrorViewDidEditContent:(CodeMirrorView*)view;
+-(void)codeMirrorViewDidChangeContent:(CodeMirrorView*)view;
 @end
 
 @interface CodeMirrorView : NSView {
 @private
   WebView* _webView;
   id<CodeMirrorViewDelegate> _delegate;
+  BOOL _disableChangeNotifications;
 }
 @property(nonatomic, assign) id<CodeMirrorViewDelegate> delegate;
 
 @property(nonatomic, readonly) NSArray* supportedMimeTypes;
 
 @property(nonatomic, copy) NSString* mimeType;
-@property(nonatomic, copy) NSString* content;
+@property(nonatomic, copy) NSString* content;  // Does not notify delegate when setting
 @property(nonatomic) BOOL lineWrapping;
 @property(nonatomic) NSUInteger tabSize;
 @property(nonatomic) NSUInteger indentUnit;

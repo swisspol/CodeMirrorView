@@ -75,7 +75,9 @@
 }
 
 - (void)setContent:(NSString*)content {
+  _disableChangeNotifications = YES;
   [[[_webView mainFrame] windowObject] callWebScriptMethod:@"SetContent" withArguments:@[content]];
+  _disableChangeNotifications = NO;
 }
 
 - (NSString*)content {
@@ -135,8 +137,8 @@
 }
 
 - (void)change {
-  if ([_delegate respondsToSelector:@selector(codeMirrorViewDidEditContent:)]) {
-    [_delegate codeMirrorViewDidEditContent:self];
+  if (!_disableChangeNotifications && [_delegate respondsToSelector:@selector(codeMirrorViewDidChangeContent:)]) {
+    [_delegate codeMirrorViewDidChangeContent:self];
   }
 }
 

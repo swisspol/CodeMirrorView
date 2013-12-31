@@ -35,7 +35,7 @@
   _codeMirrorView.delegate = self;
 }
 
-- (void)codeMirrorViewDidEditContent:(CodeMirrorView*)view {
+- (void)codeMirrorViewDidChangeContent:(CodeMirrorView*)view {
   NSLog(@"Updated content!");
 }
 
