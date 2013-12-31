@@ -56,7 +56,7 @@
 
 - (id)initWithFrame:(NSRect)frameRect {
   if ((self = [super initWithFrame:frameRect])) {
-    _webView = [[WebView alloc] initWithFrame:frameRect];
+    _webView = [[WebView alloc] initWithFrame:NSMakeRect(0, 0, frameRect.size.width, frameRect.size.height)];
     [_webView setFrameLoadDelegate:self];
     [self addSubview:_webView];
     [self setAutoresizesSubviews:YES];
@@ -80,7 +80,7 @@
 }
 
 - (NSArray*)supportedMimeTypes {
-  return [[[[_webView mainFrame] windowObject] callWebScriptMethod:@"SupportedMimeTypes" withArguments:@[]] componentsSeparatedByString:@","];
+  return [[[[[_webView mainFrame] windowObject] callWebScriptMethod:@"SupportedMimeTypes" withArguments:@[]] componentsSeparatedByString:@","] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
 
 - (void)setMimeType:(NSString*)type {
