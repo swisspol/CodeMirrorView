@@ -90,6 +90,7 @@
       
       function SetContent(content) {
         editor.doc.setValue(content);
+        editor.doc.clearHistory();
       }
       
       function GetContent() {
