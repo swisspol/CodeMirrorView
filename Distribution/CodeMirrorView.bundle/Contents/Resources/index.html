@@ -21,7 +21,7 @@
   <body>
     <script>
       
-      var delegate = null;
+      var delegate = window._delegate;
       
       var editor = CodeMirror(document.body, {
         indentUnit: 2,
@@ -35,10 +35,6 @@
       editor.on("change", function(instance, change) {
         delegate.change();
       });
-      
-      function SetDelegate(wsObject) {
-        delegate = wsObject;
-      }
       
       function SupportedMimeTypes() {
         return Object.keys(CodeMirror.mimeModes).join(",");
@@ -99,6 +95,8 @@
       function GetContent() {
         return editor.doc.getValue();
       }
+      
+      delegate.ready();
       
     </script>
   </body>

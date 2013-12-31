@@ -33,25 +33,8 @@
 
 @synthesize delegate=_delegate;
 
-+ (BOOL)isSelectorExcludedFromWebScript:(SEL)selector {
-  if (selector == @selector(change)) {
-    return NO;
-  }
-  return YES;
-}
-
-- (void)change {
-  if ([_delegate respondsToSelector:@selector(codeMirrorViewDidEditContent:)]) {
-    [_delegate codeMirrorViewDidEditContent:self];
-  }
-}
-
-- (void)webView:(WebView*)sender didFinishLoadForFrame:(WebFrame*)frame {
-  [[[_webView mainFrame] windowObject] callWebScriptMethod:@"SetDelegate" withArguments:@[self]];
-  
-  if ([_delegate respondsToSelector:@selector(codeMirrorViewDidFinishLoading:)]) {
-    [_delegate codeMirrorViewDidFinishLoading:self];
-  }
+- (void)webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowObject forFrame:(WebFrame*)frame {
+  [windowObject setValue:self forKey:@"_delegate"];
 }
 
 - (id)initWithFrame:(NSRect)frameRect {
@@ -129,6 +112,32 @@
 
 - (BOOL)tabInsertsSpaces {
   return [[[[_webView mainFrame] windowObject] callWebScriptMethod:@"GetTabInsertSpaces" withArguments:@[]] boolValue];
+}
+
+@end
+
+@implementation CodeMirrorView (JavaScriptBindings)
+
++ (BOOL)isSelectorExcludedFromWebScript:(SEL)selector {
+  if (selector == @selector(ready)) {
+    return NO;
+  }
+  if (selector == @selector(change)) {
+    return NO;
+  }
+  return YES;
+}
+
+- (void)ready {
+  if ([_delegate respondsToSelector:@selector(codeMirrorViewDidFinishLoading:)]) {
+    [_delegate codeMirrorViewDidFinishLoading:self];
+  }
+}
+
+- (void)change {
+  if ([_delegate respondsToSelector:@selector(codeMirrorViewDidEditContent:)]) {
+    [_delegate codeMirrorViewDidEditContent:self];
+  }
 }
 
 @end
