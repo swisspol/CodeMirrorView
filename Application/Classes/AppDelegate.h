@@ -31,8 +31,10 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, CodeMirrorViewDelegate> {
 @private
+#if !__has_feature(objc_arc)
   NSWindow* _mainWindow;
   CodeMirrorView* _codeMirrorView;
+#endif
 }
 @property(nonatomic, assign) IBOutlet NSWindow* mainWindow;
 @property(nonatomic, assign) IBOutlet CodeMirrorView* codeMirrorView;

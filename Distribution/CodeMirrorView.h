@@ -39,7 +39,9 @@
 @interface CodeMirrorView : NSView {
 @private
   WebView* _webView;
+#if !__has_feature(objc_arc)
   id<CodeMirrorViewDelegate> _delegate;
+#endif
   BOOL _disableChangeNotifications;
 }
 @property(nonatomic, assign) id<CodeMirrorViewDelegate> delegate;
