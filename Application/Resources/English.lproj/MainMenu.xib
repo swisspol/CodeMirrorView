@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
-        <deployment version="1060" identifier="macosx"/>
+        <deployment version="1060" defaultVersion="1060" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
@@ -51,6 +51,18 @@
                             <menuItem title="Quit Application" keyEquivalent="q" id="1439">
                                 <connections>
                                     <action selector="terminate:" target="-2" id="1577"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="File" id="FtO-76-PeH">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="File" id="Luj-cJ-FXm">
+                        <items>
+                            <menuItem title="Close" keyEquivalent="w" id="XmD-fq-nD2">
+                                <connections>
+                                    <action selector="performClose:" target="-1" id="A03-yT-lny"/>
                                 </connections>
                             </menuItem>
                         </items>
