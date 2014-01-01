@@ -116,6 +116,10 @@
   return [[[[_webView mainFrame] windowObject] callWebScriptMethod:@"GetTabInsertSpaces" withArguments:@[]] boolValue];
 }
 
+- (void)clearHistory {
+  [[[_webView mainFrame] windowObject] callWebScriptMethod:@"ClearHistory" withArguments:@[]];
+}
+
 @end
 
 @implementation CodeMirrorView (JavaScriptBindings)

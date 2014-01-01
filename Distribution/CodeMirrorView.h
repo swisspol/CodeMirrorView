@@ -52,4 +52,5 @@
 @property(nonatomic) NSUInteger tabSize;
 @property(nonatomic) NSUInteger indentUnit;
 @property(nonatomic) BOOL tabInsertsSpaces;
+- (void)clearHistory;
 @end
