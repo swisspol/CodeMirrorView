@@ -116,8 +116,12 @@
   return [[[[_webView mainFrame] windowObject] callWebScriptMethod:@"GetTabInsertSpaces" withArguments:@[]] boolValue];
 }
 
-- (void)clearHistory {
+- (void)clearUndoHistory {
   [[[_webView mainFrame] windowObject] callWebScriptMethod:@"ClearHistory" withArguments:@[]];
+}
+
+- (BOOL)isEdited {
+  return ![[[[_webView mainFrame] windowObject] callWebScriptMethod:@"IsClean" withArguments:@[]] boolValue];
 }
 
 @end

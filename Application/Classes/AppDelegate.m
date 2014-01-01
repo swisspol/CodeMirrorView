@@ -37,6 +37,7 @@
 
 - (void)codeMirrorViewDidChangeContent:(CodeMirrorView*)view {
   NSLog(@"Updated content!");
+  [_mainWindow setDocumentEdited:_codeMirrorView.edited];
 }
 
 - (void)codeMirrorViewDidFinishLoading:(CodeMirrorView*)view {

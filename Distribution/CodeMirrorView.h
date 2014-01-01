@@ -45,6 +45,7 @@
 @property(nonatomic, assign) id<CodeMirrorViewDelegate> delegate;
 
 @property(nonatomic, readonly) NSArray* supportedMimeTypes;
+@property(nonatomic, readonly, getter=isEdited) BOOL edited;  // YES if content edited since last set or last undo history cleaning
 
 @property(nonatomic, copy) NSString* mimeType;
 @property(nonatomic, copy) NSString* content;  // Does not notify delegate when setting
@@ -52,5 +53,5 @@
 @property(nonatomic) NSUInteger tabSize;
 @property(nonatomic) NSUInteger indentUnit;
 @property(nonatomic) BOOL tabInsertsSpaces;
-- (void)clearHistory;
+- (void)clearUndoHistory;
 @end

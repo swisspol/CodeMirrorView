@@ -94,6 +94,7 @@
       function SetContent(content) {
         editor.doc.setValue(content);
         editor.doc.clearHistory();
+        editor.doc.markClean();
       }
       
       function GetContent() {
@@ -102,6 +103,11 @@
       
       function ClearHistory() {
         editor.doc.clearHistory();
+        editor.doc.markClean();
+      }
+      
+      function IsClean() {
+        return editor.doc.isClean();
       }
       
       delegate.ready();
