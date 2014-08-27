@@ -33,7 +33,7 @@
 
 @synthesize delegate=_delegate;
 
-- (void)webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowObject forFrame:(WebFrame*)frame {
+- (void)webView:(WebView*) __unused webView didClearWindowObject:(WebScriptObject*)windowObject forFrame:(WebFrame*) __unused frame {
   [windowObject setValue:self forKey:@"_delegate"];
 }
 
