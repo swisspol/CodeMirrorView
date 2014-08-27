@@ -45,7 +45,7 @@
     [self setAutoresizesSubviews:YES];
     [_webView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
     
-    NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"CodeMirrorView" ofType:@"bundle"]];
+    NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"CodeMirrorView" ofType:@"bundle"]];
     NSData* data = [NSData dataWithContentsOfFile:[bundle pathForResource:@"index" ofType:@"html"]];
     if (data == nil) {
 #if !__has_feature(objc_arc)
