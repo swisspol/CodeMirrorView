@@ -34,8 +34,6 @@
   BOOL _disableChangeNotifications;
 }
 
-@synthesize delegate=_delegate;
-
 - (void)webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowObject forFrame:(WebFrame*)frame {
   [windowObject setValue:self forKey:@"_delegate"];
 }
@@ -43,81 +41,81 @@
 - (id)initWithFrame:(NSRect)frameRect {
   if ((self = [super initWithFrame:frameRect])) {
     _webView = [[WebView alloc] initWithFrame:NSMakeRect(0, 0, frameRect.size.width, frameRect.size.height)];
-    [_webView setFrameLoadDelegate:self];
+    _webView.frameLoadDelegate = self;
     [self addSubview:_webView];
-    [self setAutoresizesSubviews:YES];
-    [_webView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+    self.autoresizesSubviews = YES;
+    _webView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     
     NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"CodeMirrorView" ofType:@"bundle"]];
     NSData* data = [NSData dataWithContentsOfFile:[bundle pathForResource:@"index" ofType:@"html"]];
     if (data == nil) {
       return nil;
     }
-    [[_webView mainFrame] loadData:data MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:[bundle resourceURL]];
+    [_webView.mainFrame loadData:data MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:[bundle resourceURL]];
   }
   return self;
 }
 
 - (NSArray*)supportedMimeTypes {
-  return [[[[[_webView mainFrame] windowObject] callWebScriptMethod:@"SupportedMimeTypes" withArguments:@[]] componentsSeparatedByString:@","] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+  return [[[_webView.mainFrame.windowObject callWebScriptMethod:@"SupportedMimeTypes" withArguments:@[]] componentsSeparatedByString:@","] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 }
 
 - (void)setMimeType:(NSString*)type {
-  [[[_webView mainFrame] windowObject] callWebScriptMethod:@"SetMimeType" withArguments:@[type]];
+  [_webView.mainFrame.windowObject callWebScriptMethod:@"SetMimeType" withArguments:@[type]];
 }
 
 - (NSString*)mimeType {
-  return [[[_webView mainFrame] windowObject] callWebScriptMethod:@"GetMimeType" withArguments:@[]];
+  return [_webView.mainFrame.windowObject callWebScriptMethod:@"GetMimeType" withArguments:@[]];
 }
 
 - (void)setContent:(NSString*)content {
   _disableChangeNotifications = YES;
-  [[[_webView mainFrame] windowObject] callWebScriptMethod:@"SetContent" withArguments:@[content]];
+  [_webView.mainFrame.windowObject callWebScriptMethod:@"SetContent" withArguments:@[content]];
   _disableChangeNotifications = NO;
 }
 
 - (NSString*)content {
-  return [[[_webView mainFrame] windowObject] callWebScriptMethod:@"GetContent" withArguments:@[]];
+  return [_webView.mainFrame.windowObject callWebScriptMethod:@"GetContent" withArguments:@[]];
 }
 
 - (void)setLineWrapping:(BOOL)wrapping {
-  [[[_webView mainFrame] windowObject] callWebScriptMethod:@"SetLineWrapping" withArguments:@[[NSNumber numberWithBool:wrapping]]];
+  [_webView.mainFrame.windowObject callWebScriptMethod:@"SetLineWrapping" withArguments:@[[NSNumber numberWithBool:wrapping]]];
 }
 
 - (BOOL)lineWrapping {
-  return [[[[_webView mainFrame] windowObject] callWebScriptMethod:@"GetLineWrapping" withArguments:@[]] boolValue];
+  return [[_webView.mainFrame.windowObject callWebScriptMethod:@"GetLineWrapping" withArguments:@[]] boolValue];
 }
 
 - (void)setTabSize:(NSUInteger)size {
-  [[[_webView mainFrame] windowObject] callWebScriptMethod:@"SetTabSize" withArguments:@[[NSNumber numberWithUnsignedInteger:size]]];
+  [_webView.mainFrame.windowObject callWebScriptMethod:@"SetTabSize" withArguments:@[[NSNumber numberWithUnsignedInteger:size]]];
 }
 
 - (NSUInteger)tabSize {
-  return [[[[_webView mainFrame] windowObject] callWebScriptMethod:@"GetTabSize" withArguments:@[]] unsignedIntegerValue];
+  return [[_webView.mainFrame.windowObject callWebScriptMethod:@"GetTabSize" withArguments:@[]] unsignedIntegerValue];
 }
 
 - (void)setIndentUnit:(NSUInteger)unit {
-  [[[_webView mainFrame] windowObject] callWebScriptMethod:@"SetIndentUnit" withArguments:@[[NSNumber numberWithUnsignedInteger:unit]]];
+  [_webView.mainFrame.windowObject callWebScriptMethod:@"SetIndentUnit" withArguments:@[[NSNumber numberWithUnsignedInteger:unit]]];
 }
 
 - (NSUInteger)indentUnit {
-  return [[[[_webView mainFrame] windowObject] callWebScriptMethod:@"GetIndentUnit" withArguments:@[]] unsignedIntegerValue];
+  return [[_webView.mainFrame.windowObject callWebScriptMethod:@"GetIndentUnit" withArguments:@[]] unsignedIntegerValue];
 }
 
 - (void)setTabInsertsSpaces:(BOOL)flag {
-  [[[_webView mainFrame] windowObject] callWebScriptMethod:@"SetTabInsertSpaces" withArguments:@[[NSNumber numberWithBool:flag]]];
+  [_webView.mainFrame.windowObject callWebScriptMethod:@"SetTabInsertSpaces" withArguments:@[[NSNumber numberWithBool:flag]]];
 }
 
 - (BOOL)tabInsertsSpaces {
-  return [[[[_webView mainFrame] windowObject] callWebScriptMethod:@"GetTabInsertSpaces" withArguments:@[]] boolValue];
+  return [[_webView.mainFrame.windowObject callWebScriptMethod:@"GetTabInsertSpaces" withArguments:@[]] boolValue];
 }
 
 - (void)clearUndoHistory {
-  [[[_webView mainFrame] windowObject] callWebScriptMethod:@"ClearHistory" withArguments:@[]];
+  [_webView.mainFrame.windowObject callWebScriptMethod:@"ClearHistory" withArguments:@[]];
 }
 
 - (BOOL)isEdited {
-  return ![[[[_webView mainFrame] windowObject] callWebScriptMethod:@"IsClean" withArguments:@[]] boolValue];
+  return ![[_webView.mainFrame.windowObject callWebScriptMethod:@"IsClean" withArguments:@[]] boolValue];
 }
 
 @end

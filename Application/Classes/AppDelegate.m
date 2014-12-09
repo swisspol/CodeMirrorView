@@ -29,15 +29,13 @@
 
 @implementation AppDelegate
 
-@synthesize mainWindow=_mainWindow, codeMirrorView=_codeMirrorView;
-
 - (void)awakeFromNib {
   _codeMirrorView.delegate = self;
 }
 
 - (void)codeMirrorViewDidChangeContent:(CodeMirrorView*)view {
   NSLog(@"Updated content!");
-  [_mainWindow setDocumentEdited:_codeMirrorView.edited];
+  _mainWindow.documentEdited = _codeMirrorView.edited;
 }
 
 - (void)codeMirrorViewDidFinishLoading:(CodeMirrorView*)view {
@@ -60,7 +58,6 @@
   return YES;
 }
 
-// To test -[CoreMirrorView dealloc] and make sure it gets called
 - (void)applicationWillTerminate:(NSNotification*)notification {
   [_codeMirrorView removeFromSuperview];
   _codeMirrorView = nil;
