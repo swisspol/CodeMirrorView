@@ -29,7 +29,10 @@
 
 #import "CodeMirrorView.h"
 
-@implementation CodeMirrorView
+@implementation CodeMirrorView {
+  WebView* _webView;
+  BOOL _disableChangeNotifications;
+}
 
 @synthesize delegate=_delegate;
 
@@ -48,25 +51,12 @@
     NSBundle* bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"CodeMirrorView" ofType:@"bundle"]];
     NSData* data = [NSData dataWithContentsOfFile:[bundle pathForResource:@"index" ofType:@"html"]];
     if (data == nil) {
-#if !__has_feature(objc_arc)
-      [self release];
-#endif
       return nil;
     }
     [[_webView mainFrame] loadData:data MIMEType:@"text/html" textEncodingName:@"utf-8" baseURL:[bundle resourceURL]];
   }
   return self;
 }
-
-#if !__has_feature(objc_arc)
-
-- (void)dealloc {
-  [_webView release];
-  
-  [super dealloc];
-}
-
-#endif
 
 - (NSArray*)supportedMimeTypes {
   return [[[[[_webView mainFrame] windowObject] callWebScriptMethod:@"SupportedMimeTypes" withArguments:@[]] componentsSeparatedByString:@","] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];

@@ -29,13 +29,7 @@
 
 #import "CodeMirrorView.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate, CodeMirrorViewDelegate> {
-@private
-#if !__has_feature(objc_arc)
-  NSWindow* _mainWindow;
-  CodeMirrorView* _codeMirrorView;
-#endif
-}
+@interface AppDelegate : NSObject <NSApplicationDelegate, CodeMirrorViewDelegate>
 @property(nonatomic, assign) IBOutlet NSWindow* mainWindow;
 @property(nonatomic, assign) IBOutlet CodeMirrorView* codeMirrorView;
 @end

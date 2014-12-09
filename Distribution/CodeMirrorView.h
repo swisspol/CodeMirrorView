@@ -36,14 +36,7 @@
 -(void)codeMirrorViewDidChangeContent:(CodeMirrorView*)view;
 @end
 
-@interface CodeMirrorView : NSView {
-@private
-  WebView* _webView;
-#if !__has_feature(objc_arc)
-  id<CodeMirrorViewDelegate> _delegate;
-#endif
-  BOOL _disableChangeNotifications;
-}
+@interface CodeMirrorView : NSView
 @property(nonatomic, assign) id<CodeMirrorViewDelegate> delegate;
 
 @property(nonatomic, readonly) NSArray* supportedMimeTypes;

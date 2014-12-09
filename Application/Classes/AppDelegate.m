@@ -63,9 +63,6 @@
 // To test -[CoreMirrorView dealloc] and make sure it gets called
 - (void)applicationWillTerminate:(NSNotification*)notification {
   [_codeMirrorView removeFromSuperview];
-#if !__has_feature(objc_arc)
-  [_codeMirrorView release];
-#endif
   _codeMirrorView = nil;
 }
 

@@ -6,30 +6,7 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		E2D18D8A1874CF0300EC80F4 /* Build All */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = E2D18D8B1874CF0300EC80F4 /* Build configuration list for PBXAggregateTarget "Build All" */;
-			buildPhases = (
-			);
-			dependencies = (
-				E2D18D911874CF0D00EC80F4 /* PBXTargetDependency */,
-				E2D18D8F1874CF0B00EC80F4 /* PBXTargetDependency */,
-			);
-			name = "Build All";
-			productName = "Build All";
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
-		E200E17F158C1FD90078EAF8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		E22A4F0818711BCD00575281 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E22A4F0718711BCD00575281 /* main.m */; };
-		E22A4F0C18711BDD00575281 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E22A4F0B18711BDD00575281 /* AppDelegate.m */; };
-		E22A4F1D1871227200575281 /* Source.js in Resources */ = {isa = PBXBuildFile; fileRef = E22A4F1C1871227200575281 /* Source.js */; };
-		E23EC0331871F87F00FDDB69 /* CodeMirrorView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E23EC0301871F87F00FDDB69 /* CodeMirrorView.bundle */; };
-		E23EC0341871F87F00FDDB69 /* CodeMirrorView.m in Sources */ = {isa = PBXBuildFile; fileRef = E23EC0321871F87F00FDDB69 /* CodeMirrorView.m */; };
-		E23EC0361871F88F00FDDB69 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E23EC0351871F88F00FDDB69 /* WebKit.framework */; };
-		E23EC0371871F96C00FDDB69 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22A4F1018711BE700575281 /* MainMenu.xib */; };
 		E2D18D7B1874CDA600EC80F4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22A4F1018711BE700575281 /* MainMenu.xib */; };
 		E2D18D7C1874CDA600EC80F4 /* CodeMirrorView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E23EC0301871F87F00FDDB69 /* CodeMirrorView.bundle */; };
 		E2D18D7D1874CDA600EC80F4 /* Source.js in Resources */ = {isa = PBXBuildFile; fileRef = E22A4F1C1871227200575281 /* Source.js */; };
@@ -40,26 +17,8 @@
 		E2D18D841874CDA600EC80F4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		E2D18D8E1874CF0B00EC80F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D1107260486CEB800E47090;
-			remoteInfo = Application;
-		};
-		E2D18D901874CF0D00EC80F4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E2D18D791874CDA600EC80F4;
-			remoteInfo = "ARC Application";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		8D1107320486CEB800E47090 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22A4F0718711BCD00575281 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E22A4F0A18711BDD00575281 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E22A4F0B18711BDD00575281 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -70,19 +29,10 @@
 		E23EC0321871F87F00FDDB69 /* CodeMirrorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeMirrorView.m; sourceTree = "<group>"; };
 		E23EC0351871F88F00FDDB69 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E2CF2CF418711B8300ED5355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2D18D881874CDA600EC80F4 /* ARC Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARC Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2D18D881874CDA600EC80F4 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8D11072E0486CEB800E47090 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E23EC0361871F88F00FDDB69 /* WebKit.framework in Frameworks */,
-				E200E17F158C1FD90078EAF8 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E2D18D821874CDA600EC80F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -98,8 +48,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* Application.app */,
-				E2D18D881874CDA600EC80F4 /* ARC Application.app */,
+				E2D18D881874CDA600EC80F4 /* Application.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -159,27 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8D1107260486CEB800E47090 /* Application */ = {
+		E2D18D791874CDA600EC80F4 /* Application */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Application" */;
-			buildPhases = (
-				8D1107290486CEB800E47090 /* Resources */,
-				8D11072C0486CEB800E47090 /* Sources */,
-				8D11072E0486CEB800E47090 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Application;
-			productInstallPath = "$(HOME)/Applications";
-			productName = Mac;
-			productReference = 8D1107320486CEB800E47090 /* Application.app */;
-			productType = "com.apple.product-type.application";
-		};
-		E2D18D791874CDA600EC80F4 /* ARC Application */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E2D18D851874CDA600EC80F4 /* Build configuration list for PBXNativeTarget "ARC Application" */;
+			buildConfigurationList = E2D18D851874CDA600EC80F4 /* Build configuration list for PBXNativeTarget "Application" */;
 			buildPhases = (
 				E2D18D7A1874CDA600EC80F4 /* Resources */,
 				E2D18D7E1874CDA600EC80F4 /* Sources */,
@@ -189,10 +120,10 @@
 			);
 			dependencies = (
 			);
-			name = "ARC Application";
+			name = Application;
 			productInstallPath = "$(HOME)/Applications";
 			productName = Mac;
-			productReference = E2D18D881874CDA600EC80F4 /* ARC Application.app */;
+			productReference = E2D18D881874CDA600EC80F4 /* Application.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -201,7 +132,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0610;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Application" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -217,24 +148,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E2D18D8A1874CF0300EC80F4 /* Build All */,
-				8D1107260486CEB800E47090 /* Application */,
-				E2D18D791874CDA600EC80F4 /* ARC Application */,
+				E2D18D791874CDA600EC80F4 /* Application */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8D1107290486CEB800E47090 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E23EC0371871F96C00FDDB69 /* MainMenu.xib in Resources */,
-				E23EC0331871F87F00FDDB69 /* CodeMirrorView.bundle in Resources */,
-				E22A4F1D1871227200575281 /* Source.js in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E2D18D7A1874CDA600EC80F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -248,16 +167,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8D11072C0486CEB800E47090 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E23EC0341871F87F00FDDB69 /* CodeMirrorView.m in Sources */,
-				E22A4F0818711BCD00575281 /* main.m in Sources */,
-				E22A4F0C18711BDD00575281 /* AppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E2D18D7E1874CDA600EC80F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,19 +178,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E2D18D8F1874CF0B00EC80F4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8D1107260486CEB800E47090 /* Application */;
-			targetProxy = E2D18D8E1874CF0B00EC80F4 /* PBXContainerItemProxy */;
-		};
-		E2D18D911874CF0D00EC80F4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E2D18D791874CDA600EC80F4 /* ARC Application */;
-			targetProxy = E2D18D901874CF0D00EC80F4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E22A4F1018711BE700575281 /* MainMenu.xib */ = {
@@ -295,26 +191,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		C01FCF4B08A954540054247B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = NO;
-				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = Application;
-			};
-			name = Debug;
-		};
-		C01FCF4C08A954540054247B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = NO;
-				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = Application;
-			};
-			name = Release;
-		};
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -343,49 +219,26 @@
 		E2D18D861874CDA600EC80F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = "ARC Application";
+				PRODUCT_NAME = Application;
 			};
 			name = Debug;
 		};
 		E2D18D871874CDA600EC80F4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = "ARC Application";
-			};
-			name = Release;
-		};
-		E2D18D8C1874CF0300EC80F4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		E2D18D8D1874CF0300EC80F4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Application;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Application" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C01FCF4B08A954540054247B /* Debug */,
-				C01FCF4C08A954540054247B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Application" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -395,20 +248,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2D18D851874CDA600EC80F4 /* Build configuration list for PBXNativeTarget "ARC Application" */ = {
+		E2D18D851874CDA600EC80F4 /* Build configuration list for PBXNativeTarget "Application" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2D18D861874CDA600EC80F4 /* Debug */,
 				E2D18D871874CDA600EC80F4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E2D18D8B1874CF0300EC80F4 /* Build configuration list for PBXAggregateTarget "Build All" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E2D18D8C1874CF0300EC80F4 /* Debug */,
-				E2D18D8D1874CF0300EC80F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
