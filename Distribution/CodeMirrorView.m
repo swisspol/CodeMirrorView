@@ -34,6 +34,12 @@
   BOOL _disableChangeNotifications;
 }
 
+// Disable vertical elasticity since the line number ruler doesn't draw past the text area
+- (void)webView:(WebView*)webView didFinishLoadForFrame:(WebFrame*)frame {
+  NSScrollView* mainScrollView = webView.mainFrame.frameView.documentView.enclosingScrollView;
+  mainScrollView.verticalScrollElasticity = NSScrollElasticityNone;
+}
+
 - (void)webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowObject forFrame:(WebFrame*)frame {
   [windowObject setValue:self forKey:@"_delegate"];
 }
