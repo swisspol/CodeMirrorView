@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-# Copyright (c) 2013, Pierre-Olivier Latour
+# Copyright (c) 2013-2016, Pierre-Olivier Latour
 # All rights reserved.
 # 
 # Redistribution and use in source and binary forms, with or without
@@ -37,11 +37,6 @@ BUNDLE_PATH="Distribution/CodeMirrorView.bundle"
 CONTENTS_PATH="$BUNDLE_PATH/Contents"
 RESOURCES_PATH="$CONTENTS_PATH/Resources"
 
-function patch_file() {
-  /usr/bin/perl -p -e "$2" "$1" > "$1~"
-  /bin/mv -f "$1~" "$1"
-}
-
 rm -f "$ARCHIVE"
 curl -L -o "$ARCHIVE" "https://github.com/marijnh/CodeMirror/archive/$VERSION.tar.gz"
 tar -xf "$ARCHIVE"
@@ -52,7 +47,7 @@ rm -rf "$BUNDLE_PATH"
 mkdir -p "$RESOURCES_PATH"
 
 cp "Bundle-Info.plist" "$CONTENTS_PATH/Info.plist"
-patch_file "$CONTENTS_PATH/Info.plist" "s|__VERSION__|$VERSION|g"
+perl -p -i -e "s|__VERSION__|$VERSION|g" "$CONTENTS_PATH/Info.plist"
 plutil -convert "binary1" "$CONTENTS_PATH/Info.plist"
 
 cp "CodeMirror/LICENSE" "$CONTENTS_PATH"
@@ -73,8 +68,13 @@ for DIRECTORY in "CodeMirror/mode/"*; do
   fi
 done
 
+mkdir -p "$RESOURCES_PATH/addons"
+cp -r "CodeMirror/addon/dialog" "$RESOURCES_PATH/addons"
+cp -r "CodeMirror/addon/search" "$RESOURCES_PATH/addons"
+cp -r "CodeMirror/addon/comment" "$RESOURCES_PATH/addons"
+
 cp "Bundle-Index.html" "$RESOURCES_PATH/index.html"
-patch_file "$RESOURCES_PATH/index.html" "s|<!--MODES-->|$MODES|g"
+perl -p -i -e "s|<!--MODES-->|$MODES|g" "$RESOURCES_PATH/index.html"
 
 rm -rf "CodeMirror"
 echo "Success!"
