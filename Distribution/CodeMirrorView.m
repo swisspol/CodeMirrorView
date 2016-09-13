@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2013, Pierre-Olivier Latour
+ Copyright (c) 2013-2016, Pierre-Olivier Latour
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
@@ -29,19 +29,12 @@
 
 #import "CodeMirrorView.h"
 
+@interface CodeMirrorView () <WebFrameLoadDelegate>
+@end
+
 @implementation CodeMirrorView {
   WebView* _webView;
   BOOL _disableChangeNotifications;
-}
-
-// Disable vertical elasticity since the line number ruler doesn't draw past the text area
-- (void)webView:(WebView*)webView didFinishLoadForFrame:(WebFrame*)frame {
-  NSScrollView* mainScrollView = webView.mainFrame.frameView.documentView.enclosingScrollView;
-  mainScrollView.verticalScrollElasticity = NSScrollElasticityNone;
-}
-
-- (void)webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowObject forFrame:(WebFrame*)frame {
-  [windowObject setValue:self forKey:@"_delegate"];
 }
 
 - (id)initWithFrame:(NSRect)frameRect {
@@ -122,6 +115,18 @@
 
 - (BOOL)isEdited {
   return ![[_webView.mainFrame.windowObject callWebScriptMethod:@"IsClean" withArguments:@[]] boolValue];
+}
+
+#pragma mark - WebFrameLoadDelegate
+
+// Disable vertical elasticity since the line number ruler doesn't draw past the text area
+- (void)webView:(WebView*)webView didFinishLoadForFrame:(WebFrame*)frame {
+  NSScrollView* mainScrollView = webView.mainFrame.frameView.documentView.enclosingScrollView;
+  mainScrollView.verticalScrollElasticity = NSScrollElasticityNone;
+}
+
+- (void)webView:(WebView*)webView didClearWindowObject:(WebScriptObject*)windowObject forFrame:(WebFrame*)frame {
+  [windowObject setValue:self forKey:@"_delegate"];
 }
 
 @end

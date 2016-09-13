@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2013, Pierre-Olivier Latour
+ Copyright (c) 2013-2016, Pierre-Olivier Latour
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
@@ -39,11 +39,11 @@
 }
 
 - (void)codeMirrorViewDidFinishLoading:(CodeMirrorView*)view {
-  NSLog(@"Ready!");
+  NSLog(@"Ready!\n%@", _codeMirrorView.supportedMimeTypes);
   
   _codeMirrorView.mimeType = @"application/javascript";
-  _codeMirrorView.tabSize = 4;
-  _codeMirrorView.indentUnit = 4;
+  _codeMirrorView.tabSize = 2;
+  _codeMirrorView.indentUnit = 2;
   _codeMirrorView.lineWrapping = YES;
   _codeMirrorView.tabInsertsSpaces = YES;
   

@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2013, Pierre-Olivier Latour
+ Copyright (c) 2013-2016, Pierre-Olivier Latour
  All rights reserved.
  
  Redistribution and use in source and binary forms, with or without
