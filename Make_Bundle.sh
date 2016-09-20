@@ -50,7 +50,7 @@ cp "Bundle-Info.plist" "$CONTENTS_PATH/Info.plist"
 perl -p -i -e "s|__VERSION__|$VERSION|g" "$CONTENTS_PATH/Info.plist"
 plutil -convert "binary1" "$CONTENTS_PATH/Info.plist"
 
-cp "CodeMirror/LICENSE" "$CONTENTS_PATH"
+cp "CodeMirror/LICENSE" "$RESOURCES_PATH"
 
 MODES=""
 cp "CodeMirror/lib/codemirror.css" "$RESOURCES_PATH"
@@ -61,6 +61,7 @@ for DIRECTORY in "CodeMirror/mode/"*; do
     MODE=`basename "$DIRECTORY"`
     if [ -f "$DIRECTORY/$MODE.js" ]; then
       cp "$DIRECTORY/$MODE.js" "$RESOURCES_PATH/modes/$MODE.js"
+      chmod a-x "$RESOURCES_PATH/modes/$MODE.js"
       MODES="$MODES<script src=\"modes/$MODE.js\"></script>"
     else
       echo "[WARNING] Failed copying mode '$MODE'"
