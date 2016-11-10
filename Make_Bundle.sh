@@ -41,7 +41,6 @@ rm -f "$ARCHIVE"
 curl -L -o "$ARCHIVE" "https://codemirror.net/codemirror.zip"
 unzip "$ARCHIVE"
 rm -f "$ARCHIVE"
-
 mv -f "codemirror-$VERSION" "CodeMirror"
 
 rm -rf "$BUNDLE_PATH"
