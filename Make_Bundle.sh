@@ -31,17 +31,17 @@ if [ $# != 1 ]; then
 fi
 VERSION="$1"
 
-ARCHIVE="CoreMirror.tar.gz"
+ARCHIVE="codemirror.zip"
 
 BUNDLE_PATH="Distribution/CodeMirrorView.bundle"
 CONTENTS_PATH="$BUNDLE_PATH/Contents"
 RESOURCES_PATH="$CONTENTS_PATH/Resources"
 
 rm -f "$ARCHIVE"
-curl -L -o "$ARCHIVE" "https://github.com/marijnh/CodeMirror/archive/$VERSION.tar.gz"
-tar -xf "$ARCHIVE"
+curl -L -o "$ARCHIVE" "https://codemirror.net/codemirror.zip"
+unzip "$ARCHIVE"
 rm -f "$ARCHIVE"
-mv -f "CodeMirror-$VERSION" "CodeMirror"
+mv -f "codemirror-$VERSION" "CodeMirror"
 
 rm -rf "$BUNDLE_PATH"
 mkdir -p "$RESOURCES_PATH"
