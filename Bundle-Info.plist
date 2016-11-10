@@ -7,7 +7,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>net.codemirror.view</string>
 	<key>CFBundleShortVersionString</key>
-	<string>CodeMirror __VERSION__</string>
+	<string>__VERSION__</string>
 	<key>CFBundleVersion</key>
 	<string>__VERSION__</string>
 </dict>
